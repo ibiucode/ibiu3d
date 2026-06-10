@@ -1,0 +1,43 @@
+# 依賴
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 建置輸出
+dist/
+dist-ssr/
+frontend/dist/
+
+# 環境變數（絕對不能上傳）
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# 資料庫（本地開發用）
+backend/db.sqlite3
+*.sqlite3
+
+# 上傳檔案
+backend/uploads/
+
+# 系統
+.DS_Store
+Thumbs.db
+
+# 編輯器
+.vscode/
+.idea/
+*.suo
+*.sw?
+
+# Log
+*.log
+logs/
+
+# Python egg
+*.egg-info/
+.eggs/
