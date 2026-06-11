@@ -15,7 +15,12 @@ CORS_ORIGINS_RAW = os.getenv(
     "CORS_ORIGINS",
     "http://localhost:3000,http://localhost:5173,http://localhost:5174"
 )
-CORS_ORIGINS = [o.strip() for o in CORS_ORIGINS_RAW.split(",")]
+def _normalize_origin(o: str) -> str:
+    o = o.strip()
+    parts = o.split("/")
+    return "/".join(parts[:3]) if len(parts) >= 3 else o
+
+CORS_ORIGINS = [_normalize_origin(o) for o in CORS_ORIGINS_RAW.split(",") if o.strip()]
 
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 

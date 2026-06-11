@@ -13,7 +13,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ORIGINS
-        value: https://ibiucode.github.io/ibiu3d
+        value: https://ibiucode.github.io
       - key: ADMIN_DEFAULT_EMAIL
         value: admin@example.com
       - key: ADMIN_DEFAULT_PASSWORD
