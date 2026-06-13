@@ -26,7 +26,9 @@ export default function AdminLogin() {
       await login(email, password)
       navigate(from, { replace: true })
     } catch (err) {
-      setError(err.message || '登入失敗')
+      // 網路層失敗（如後端冷啟動）會丟 TypeError；HTTP 錯誤則保留後端訊息
+      const isNetworkError = err instanceof TypeError
+      setError(isNetworkError ? '伺服器可能正在喚醒中，請稍候再試。' : (err.message || '登入失敗'))
     } finally {
       setLoading(false)
     }

@@ -4,7 +4,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./db.sqlite3")
-JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-in-production")
+_JWT_SECRET_ENV = os.getenv("JWT_SECRET")
+if os.getenv("ENVIRONMENT", "development") == "production":
+    # production 必須由環境變數提供，禁止 fallback 到開發密鑰
+    if not _JWT_SECRET_ENV:
+        raise RuntimeError(
+            "JWT_SECRET 環境變數未設定：production 環境必須提供，禁止使用預設開發密鑰。"
+        )
+    JWT_SECRET = _JWT_SECRET_ENV
+else:
+    JWT_SECRET = _JWT_SECRET_ENV or "dev-secret-change-in-production"
 JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 JWT_EXPIRE_MINUTES = int(os.getenv("JWT_EXPIRE_MINUTES", "480"))
 
