@@ -1,22 +1,28 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BRAND } from '../constants/brand'
+import { api } from '../services/api'
+import { usePublicContent } from '../hooks/usePublicContent'
 import { useAnalytics } from '../hooks/useAnalytics'
 import Card from '../components/ui/Card'
 
-const CONTACTS = [
-  { icon: '✉️', label: 'Email', value: BRAND.email, href: `mailto:${BRAND.email}` },
-  { icon: '📱', label: '電話', value: BRAND.phone, href: `tel:${BRAND.phone}` },
-  { icon: '📸', label: 'Instagram', value: '@3dworkshop_tw', href: BRAND.ig },
-  { icon: '💬', label: 'LINE', value: '官方帳號聯絡', href: BRAND.line },
-]
-
 export default function Contact() {
   const { trackPageView } = useAnalytics()
+  const { content: s } = usePublicContent(api.getPublicSiteSettings, null)
 
-  useEffect(() => {
-    trackPageView('/contact')
-  }, [trackPageView])
+  useEffect(() => { trackPageView('/contact') }, [trackPageView])
+
+  const email = s?.contact_email || BRAND.email
+  const phone = s?.contact_phone || BRAND.phone
+  const line = s?.contact_line || BRAND.line
+  const ig = s?.contact_instagram || BRAND.ig
+
+  const contacts = [
+    email && { icon: '✉️', label: 'Email', value: email, href: `mailto:${email}` },
+    phone && { icon: '📱', label: '電話', value: phone, href: `tel:${phone}` },
+    ig && { icon: '📸', label: 'Instagram', value: ig.replace(/^https?:\/\//, ''), href: ig },
+    line && { icon: '💬', label: 'LINE', value: '官方帳號聯絡', href: line },
+  ].filter(Boolean)
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-20">
@@ -26,13 +32,13 @@ export default function Contact() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-        {CONTACTS.map(c => (
+        {contacts.map(c => (
           <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer">
             <Card hover className="flex items-center gap-4 cursor-pointer">
               <div className="text-3xl">{c.icon}</div>
               <div>
                 <div className="text-zinc-400 text-xs mb-1">{c.label}</div>
-                <div className="text-white font-medium">{c.value}</div>
+                <div className="text-white font-medium break-all">{c.value}</div>
               </div>
             </Card>
           </a>

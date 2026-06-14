@@ -76,6 +76,53 @@ export const api = {
   // ── 未來模組 placeholder ──────────────────────────────────────
   getModules: () => request('/api/admin/modules'),
   getModuleStatus: (name) => request(`/api/admin/modules/${name}/status`),
+
+  // ── 公開 CMS（前台，免登入）────────────────────────────────────
+  getPublicSiteSettings: () => request('/api/public/site-settings'),
+
+  // ── 後台 CMS：網站設定 ─────────────────────────────────────────
+  getSiteSettings: () => request('/api/admin/cms/site-settings'),
+  updateSiteSettings: (data) => request('/api/admin/cms/site-settings', {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  }),
+
+  // ── 公開 CMS：最新消息 ─────────────────────────────────────────
+  getPublicNews: () => request('/api/public/news'),
+  getPublicNewsDetail: (slug) => request(`/api/public/news/${encodeURIComponent(slug)}`),
+
+  // ── 後台 CMS：最新消息 ─────────────────────────────────────────
+  getCmsNews: () => request('/api/admin/cms/news'),
+  getCmsNewsItem: (id) => request(`/api/admin/cms/news/${id}`),
+  createCmsNews: (data) => request('/api/admin/cms/news', { method: 'POST', body: JSON.stringify(data) }),
+  updateCmsNews: (id, data) => request(`/api/admin/cms/news/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteCmsNews: (id) => request(`/api/admin/cms/news/${id}`, { method: 'DELETE' }),
+
+  // ── 公開 CMS：作品展示 ─────────────────────────────────────────
+  getPublicGallery: (params) => request(`/api/public/gallery${params ? `?${new URLSearchParams(params)}` : ''}`),
+  getPublicGalleryDetail: (slug) => request(`/api/public/gallery/${encodeURIComponent(slug)}`),
+
+  // ── 後台 CMS：作品展示 ─────────────────────────────────────────
+  getCmsGallery: () => request('/api/admin/cms/gallery'),
+  createCmsGallery: (data) => request('/api/admin/cms/gallery', { method: 'POST', body: JSON.stringify(data) }),
+  updateCmsGallery: (id, data) => request(`/api/admin/cms/gallery/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteCmsGallery: (id) => request(`/api/admin/cms/gallery/${id}`, { method: 'DELETE' }),
+
+  // ── 公開 CMS：FAQ / 材料 ───────────────────────────────────────
+  getPublicFaqs: () => request('/api/public/faqs'),
+  getPublicMaterials: (params) => request(`/api/public/materials${params ? `?${new URLSearchParams(params)}` : ''}`),
+
+  // ── 後台 CMS：FAQ ──────────────────────────────────────────────
+  getCmsFaqs: () => request('/api/admin/cms/faqs'),
+  createCmsFaq: (data) => request('/api/admin/cms/faqs', { method: 'POST', body: JSON.stringify(data) }),
+  updateCmsFaq: (id, data) => request(`/api/admin/cms/faqs/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteCmsFaq: (id) => request(`/api/admin/cms/faqs/${id}`, { method: 'DELETE' }),
+
+  // ── 後台 CMS：材料 ─────────────────────────────────────────────
+  getCmsMaterials: () => request('/api/admin/cms/materials'),
+  createCmsMaterial: (data) => request('/api/admin/cms/materials', { method: 'POST', body: JSON.stringify(data) }),
+  updateCmsMaterial: (id, data) => request(`/api/admin/cms/materials/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteCmsMaterial: (id) => request(`/api/admin/cms/materials/${id}`, { method: 'DELETE' }),
 }
 
 export { BASE_URL }

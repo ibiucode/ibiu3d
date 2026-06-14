@@ -127,3 +127,112 @@ class FutureOrder(Base):
     inquiry_id = Column(Integer, ForeignKey("inquiries.id"), nullable=True)
     status = Column(String, default="pending")
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+# ── Mini CMS ──────────────────────────────────────────────────────────────────
+CMS_STATUSES = ["draft", "published", "archived"]
+CMS_PROCESS_TYPES = ["FDM", "SLA", "Other"]
+
+
+class SiteSettings(Base):
+    """全站設定與主題配色（第一階段單筆 id=1）"""
+    __tablename__ = "site_settings"
+    id = Column(Integer, primary_key=True, index=True)
+    site_name = Column(String, default="職人自造")
+    tagline = Column(String, default="")
+    logo_url = Column(String, nullable=True)
+    primary_color = Column(String, default="#f97316")
+    secondary_color = Column(String, default="#3f3f46")
+    background_color = Column(String, default="#09090b")
+    surface_color = Column(String, default="#18181b")
+    text_color = Column(String, default="#fafafa")
+    accent_color = Column(String, default="#f97316")
+    border_color = Column(String, default="#27272a")
+    hero_title = Column(String, default="")
+    hero_subtitle = Column(Text, default="")
+    hero_cta_text = Column(String, default="")
+    hero_cta_link = Column(String, default="")
+    hero_image_url = Column(String, nullable=True)
+    contact_email = Column(String, default="")
+    contact_phone = Column(String, default="")
+    contact_line = Column(String, default="")
+    contact_instagram = Column(String, default="")
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+
+
+class NewsPost(Base):
+    """最新消息 / 公告"""
+    __tablename__ = "news_posts"
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    slug = Column(String, unique=True, index=True, nullable=False)
+    category = Column(String, default="")
+    summary = Column(Text, default="")
+    content = Column(Text, default="")
+    cover_image_url = Column(String, nullable=True)
+    status = Column(String, default="draft")
+    is_pinned = Column(Boolean, default=False)
+    published_at = Column(DateTime, nullable=True)
+    expires_at = Column(DateTime, nullable=True)
+    sort_order = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+    updated_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+
+
+class GalleryItem(Base):
+    """作品展示"""
+    __tablename__ = "gallery_items"
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    slug = Column(String, unique=True, index=True, nullable=False)
+    process_type = Column(String, default="Other")  # FDM / SLA / Other
+    category = Column(String, default="")
+    material = Column(String, default="")
+    summary = Column(Text, default="")
+    description = Column(Text, default="")
+    image_url = Column(String, nullable=True)
+    thumbnail_url = Column(String, nullable=True)
+    is_featured = Column(Boolean, default=False)
+    status = Column(String, default="draft")
+    sort_order = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+    updated_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+
+
+class FaqItem(Base):
+    """常見問題"""
+    __tablename__ = "faq_items"
+    id = Column(Integer, primary_key=True, index=True)
+    question = Column(String, nullable=False)
+    answer = Column(Text, default="")
+    category = Column(String, default="")
+    status = Column(String, default="draft")
+    sort_order = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+    updated_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+
+
+class MaterialItem(Base):
+    """材料介紹"""
+    __tablename__ = "materials"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    process_type = Column(String, default="Other")  # FDM / SLA / Other
+    category = Column(String, default="")
+    properties = Column(Text, default="")
+    suitable_for = Column(Text, default="")
+    description = Column(Text, default="")
+    image_url = Column(String, nullable=True)
+    status = Column(String, default="draft")
+    sort_order = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+    updated_by = Column(Integer, ForeignKey("users.id"), nullable=True)

@@ -5,7 +5,7 @@ from database import engine, Base, SessionLocal
 from models import User
 from auth import hash_password
 from config import CORS_ORIGINS, ADMIN_DEFAULT_EMAIL, ADMIN_DEFAULT_PASSWORD, ENVIRONMENT
-from routers import auth, inquiries, admin, analytics, health, future_modules
+from routers import auth, inquiries, admin, analytics, health, future_modules, cms, public
 
 # 建立所有資料表
 Base.metadata.create_all(bind=engine)
@@ -31,6 +31,8 @@ app.include_router(inquiries.router, prefix="/api", tags=["inquiries"])
 app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
 app.include_router(analytics.router, prefix="/api/analytics", tags=["analytics"])
 app.include_router(future_modules.router, prefix="/api/admin", tags=["future-modules"])
+app.include_router(public.router, prefix="/api/public", tags=["public-cms"])
+app.include_router(cms.router, prefix="/api/admin/cms", tags=["admin-cms"])
 
 
 @app.on_event("startup")

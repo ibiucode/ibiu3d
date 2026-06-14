@@ -6,6 +6,11 @@ const NAV = [
   { label: '總覽', path: '/admin/dashboard', icon: '◉' },
   { label: '詢價管理', path: '/admin/inquiries', icon: '📋' },
   { label: '分析報表', path: '/admin/analytics', icon: '📊' },
+  { label: '網站設定', path: '/admin/cms/site-settings', icon: '⚙️', adminOnly: true },
+  { label: '最新消息', path: '/admin/cms/news', icon: '📰' },
+  { label: '作品管理', path: '/admin/cms/gallery', icon: '🖼️' },
+  { label: 'FAQ 管理', path: '/admin/cms/faqs', icon: '❓' },
+  { label: '材料管理', path: '/admin/cms/materials', icon: '🧱' },
   { label: '未來模組', path: '/admin/modules', icon: '🚀' },
   { label: '帳號管理', path: '/admin/users', icon: '👤', adminOnly: true },
 ]

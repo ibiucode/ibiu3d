@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* CMS 主題變數：由 site_settings 於啟動時套用（見 lib/theme.js）；
+   此處為 fallback 工業專業感配色，API 失敗時使用。 */
+:root {
+  --color-primary: #f97316;
+  --color-secondary: #3f3f46;
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-text: #fafafa;
+  --color-muted: #a1a1aa;
+  --color-accent: #f97316;
+  --color-border: #27272a;
+}
+
 body {
   margin: 0;
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;

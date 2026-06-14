@@ -14,6 +14,7 @@ export const NAV_LINKS = [
   { label: 'SLA 列印', path: '/services/sla' },
   { label: '材料介紹', path: '/materials' },
   { label: '作品展示', path: '/gallery' },
+  { label: '最新消息', path: '/news' },
   { label: 'FAQ', path: '/faq' },
   { label: '聯絡我們', path: '/contact' },
 ]

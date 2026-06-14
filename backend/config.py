@@ -54,7 +54,3 @@ FDM_PRICE_PER_GRAM = float(os.getenv("FDM_PRICE_PER_GRAM", "3.0"))
 PRINTER_MAX_X = 320.0
 PRINTER_MAX_Y = 340.0
 PRINTER_MAX_Z = 340.0
-
-# 檔案儲存路徑 (第二階段啟用)
-UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
-os.makedirs(UPLOAD_DIR, exist_ok=True)
