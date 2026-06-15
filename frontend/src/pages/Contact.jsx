@@ -46,10 +46,10 @@ export default function Contact() {
       </div>
 
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center">
-        <h2 className="text-xl font-bold text-white mb-3">要詢問列印報價？</h2>
-        <p className="text-zinc-400 text-sm mb-5">填寫詢價表單讓我們更快速地回覆您</p>
+        <h2 className="text-xl font-bold text-white mb-3">想先看看模型？</h2>
+        <p className="text-zinc-400 text-sm mb-5">上傳 STL／OBJ，在瀏覽器即時預覽外觀與尺寸</p>
         <Link to="/quote" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors">
-          前往詢價表單
+          上傳模型預覽
         </Link>
       </div>
     </div>

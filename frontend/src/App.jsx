@@ -28,6 +28,7 @@ import AdminNews from './pages/admin/cms/News'
 import AdminGallery from './pages/admin/cms/Gallery'
 import AdminFAQ from './pages/admin/cms/FAQ'
 import AdminMaterials from './pages/admin/cms/Materials'
+import AdminModelPreview from './pages/admin/ModelPreview'
 import ThemeBootstrap from './components/ThemeBootstrap'
 
 function AdminRoute({ children, requiredRole = null }) {
@@ -75,6 +76,7 @@ export default function App() {
           <Route path="/admin/cms/gallery" element={<AdminRoute><AdminGallery /></AdminRoute>} />
           <Route path="/admin/cms/faqs" element={<AdminRoute><AdminFAQ /></AdminRoute>} />
           <Route path="/admin/cms/materials" element={<AdminRoute><AdminMaterials /></AdminRoute>} />
+          <Route path="/admin/preview" element={<AdminRoute><AdminModelPreview /></AdminRoute>} />
         </Routes>
       </AuthProvider>
     </HashRouter>

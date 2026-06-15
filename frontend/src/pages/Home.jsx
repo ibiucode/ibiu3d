@@ -24,7 +24,7 @@ export default function Home() {
 
   const heroTitle = settings?.hero_title
   const heroSubtitle = settings?.hero_subtitle || BRAND.description
-  const ctaText = settings?.hero_cta_text || '立即詢價'
+  const ctaText = settings?.hero_cta_text || '上傳模型預覽'
   const ctaLink = settings?.hero_cta_link || '/quote'
   const latestNews = (news || []).slice(0, 3)
   const featuredItems = (featured || []).slice(0, 6)
@@ -148,7 +148,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">準備好開始了嗎？</h2>
           <p className="text-zinc-400 mb-8">告訴我們你的需求，24 小時內回報報價</p>
-          <Link to={ctaLink} className="inline-block px-10 py-4 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-lg transition-colors text-base">填寫詢價表單</Link>
+          <Link to="/contact" className="inline-block px-10 py-4 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-lg transition-colors text-base">聯絡我們</Link>
         </div>
       </section>
     </div>

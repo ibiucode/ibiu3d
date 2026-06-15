@@ -11,6 +11,7 @@ const NAV = [
   { label: '作品管理', path: '/admin/cms/gallery', icon: '🖼️' },
   { label: 'FAQ 管理', path: '/admin/cms/faqs', icon: '❓' },
   { label: '材料管理', path: '/admin/cms/materials', icon: '🧱' },
+  { label: '模型預覽', path: '/admin/preview', icon: '🧊' },
   { label: '未來模組', path: '/admin/modules', icon: '🚀' },
   { label: '帳號管理', path: '/admin/users', icon: '👤', adminOnly: true },
 ]

@@ -38,7 +38,7 @@ export default function Header() {
             to="/quote"
             className="px-5 py-2 bg-orange-500 hover:bg-orange-400 text-white text-sm font-semibold rounded transition-colors"
           >
-            立即詢價
+            模型預覽
           </Link>
         </div>
 
@@ -68,7 +68,7 @@ export default function Header() {
             className="mt-2 px-5 py-2.5 bg-orange-500 text-white text-sm font-semibold rounded text-center"
             onClick={() => setMenuOpen(false)}
           >
-            立即詢價
+            模型預覽
           </Link>
         </div>
       )}

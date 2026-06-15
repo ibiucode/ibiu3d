@@ -12,7 +12,7 @@ const PAGE_LABEL = {
   '/gallery': '作品集',
   '/faq': '常見問題',
   '/contact': '聯絡我們',
-  '/quote': '詢價單',
+  '/quote': '模型預覽',
   '/privacy': '隱私政策',
 }
 

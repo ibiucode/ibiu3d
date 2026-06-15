@@ -71,8 +71,8 @@ export default function Materials() {
 
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center">
         <h2 className="text-xl font-bold text-white mb-3">不確定要選哪種材料？</h2>
-        <p className="text-zinc-400 text-sm mb-5">填寫詢價表單，我們會根據你的需求建議最適合的材料</p>
-        <Link to="/quote" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors">詢問材料建議</Link>
+        <p className="text-zinc-400 text-sm mb-5">與我們聯絡，我們會根據你的需求建議最適合的材料</p>
+        <Link to="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors">詢問材料建議</Link>
       </div>
     </div>
   )

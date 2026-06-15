@@ -94,8 +94,8 @@ export default function Gallery() {
       <div className="text-center bg-zinc-900 border border-zinc-800 rounded-xl p-10">
         <h2 className="text-2xl font-bold text-white mb-3">想要類似的作品？</h2>
         <p className="text-zinc-400 mb-6">告訴我們你的設計需求，我們幫你實現</p>
-        <Link to="/quote" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors">
-          立即詢價
+        <Link to="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors">
+          聯絡我們
         </Link>
       </div>
     </div>

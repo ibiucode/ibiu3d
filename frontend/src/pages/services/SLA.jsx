@@ -76,7 +76,7 @@ export default function SLA() {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Link to="/quote" className="px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors text-center">
+        <Link to="/contact" className="px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg transition-colors text-center">
           詢問 SLA 列印報價
         </Link>
         <Link to="/services/fdm" className="px-8 py-3 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white font-semibold rounded-lg transition-colors text-center">
